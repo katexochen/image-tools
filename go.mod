@@ -2,8 +2,11 @@ module github.com/katexochen/image-unpack-tools
 
 go 1.22.5
 
+replace github.com/diskfs/go-diskfs => github.com/malt3/go-diskfs v0.0.0-20240130181614-dac3b141ac27
+
+require github.com/diskfs/go-diskfs v1.4.1
+
 require (
-	github.com/diskfs/go-diskfs v1.4.1 // indirect
 	github.com/djherbis/times v1.6.0 // indirect
 	github.com/elliotwutingfeng/asciiset v0.0.0-20230602022725-51bbb787efab // indirect
 	github.com/google/uuid v1.3.0 // indirect

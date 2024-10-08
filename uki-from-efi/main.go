@@ -42,22 +42,14 @@ func run() error {
 	}
 	defer ukiFile.Close()
 
-	_, ukiFileSize, err := (ukiFile.(*fat32.File)).GetContentSection()
-	if err != nil {
-		return err
-	}
-
 	ukiTarget, err := os.OpenFile("uki", os.O_CREATE|os.O_WRONLY|os.O_EXCL, 0o644)
 	if err != nil {
 		return err
 	}
 	defer ukiTarget.Close()
 
-	n, err := io.Copy(ukiTarget, ukiFile)
-	if err != nil {
+	if _, err := io.Copy(ukiTarget, ukiFile); err != nil {
 		return err
-	} else if n != ukiFileSize {
-		return fmt.Errorf("copied %d bytes, expected %d", n, ukiFileSize)
 	}
 
 	return nil

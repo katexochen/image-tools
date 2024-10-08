@@ -2,8 +2,6 @@ module github.com/katexochen/image-unpack-tools
 
 go 1.22.5
 
-replace github.com/diskfs/go-diskfs => github.com/malt3/go-diskfs v0.0.0-20240130181614-dac3b141ac27
-
 require github.com/diskfs/go-diskfs v1.4.1
 
 require (

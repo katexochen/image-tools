@@ -94,6 +94,7 @@ func compressFormat(magic []byte) (decompressor, error) {
 	// case "0221":
 	// 	return "lz4", nil
 	case "28b5":
+		// https://github.com/facebook/zstd/blob/dev/doc/zstd_compression_format.md
 		fmt.Println("detected zstd compressed initrd")
 		return func(in io.ReadSeeker, out io.Writer) error {
 			frameSize, err := zstdFrameSize(in)
@@ -113,6 +114,7 @@ func compressFormat(magic []byte) (decompressor, error) {
 			return nil
 		}, nil
 	case "3037":
+		// https://github.com/libyal/dtformats/blob/main/documentation/Copy%20in%20and%20out%20(CPIO)%20archive%20format.asciidoc
 		fmt.Println("detected uncompressed initrd in ascii cpio format")
 		return func(in io.ReadSeeker, out io.Writer) error {
 			size, err := cpioSize(in)
@@ -185,9 +187,9 @@ func cpioSize(in io.ReadSeeker) (int, error) {
 			}
 
 		case string(magic) == "070707":
-
+			panic("portable ascii cpio not implemented")
 		case bytes.Equal(magic[:2], []byte{0x71, 0xC7}):
-
+			panic("binary cpio format not implemented")
 		default:
 			return 0, fmt.Errorf("unknown cpio magic %s", hex.EncodeToString(magic))
 		}

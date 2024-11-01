@@ -6,7 +6,7 @@ import (
 	"os"
 	"testing"
 
-	it "github.com/katexochen/image-unpack-tools/internal/testing"
+	it "github.com/katexochen/image-tools/internal/testing"
 )
 
 func TestInitrdsep(t *testing.T) {

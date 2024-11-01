@@ -15,7 +15,7 @@ import (
 )
 
 const (
-	casURI = "ghcr.io/katexochen/image-unpack-tools/testdata-cas"
+	casURI = "ghcr.io/katexochen/image-tools/testdata-cas"
 )
 
 func FetchCAS(ctx context.Context, digest string) (string, error) {

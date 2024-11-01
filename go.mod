@@ -1,4 +1,4 @@
-module github.com/katexochen/image-unpack-tools
+module github.com/katexochen/image-tools
 
 go 1.22.5
 

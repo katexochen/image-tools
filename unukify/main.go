@@ -17,6 +17,9 @@ func main() {
 }
 
 func run() error {
+	if len(os.Args) != 2 {
+		return fmt.Errorf("usage: %s <path>", os.Args[0])
+	}
 	path := os.Args[1]
 
 	f, err := os.Open(path)

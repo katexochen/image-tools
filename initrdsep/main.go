@@ -82,20 +82,20 @@ func compressFormat(magic []byte) (decompressor, error) {
 		return nil, fmt.Errorf("minimum magic length is 2")
 	}
 	switch hex.EncodeToString(magic) {
-	// case "1f8b":
-	// 	return "gzip", nil
-	// case "1f9e":
-	// 	return "gzip", nil
-	// case "425a":
-	// 	return "bzip2", nil
-	// case "5d00":
-	// 	return "lzma", nil
-	// case "fd37":
-	// 	return "xz", nil
-	// case "894c":
-	// 	return "lzo", nil
-	// case "0221":
-	// 	return "lz4", nil
+	case "1f8b":
+		return nil, errors.New("gzip not implemented")
+	case "1f9e":
+		return nil, errors.New("gzip not implemented")
+	case "425a":
+		return nil, errors.New("bzip2 not implemented")
+	case "5d00":
+		return nil, errors.New("lzma not implemented")
+	case "fd37":
+		return nil, errors.New("xz not implemented")
+	case "894c":
+		return nil, errors.New("lzo not implemented")
+	case "0221":
+		return nil, errors.New("lz4 not implemented")
 	case "28b5":
 		// https://github.com/facebook/zstd/blob/dev/doc/zstd_compression_format.md
 		fmt.Println("detected zstd compressed initrd")
